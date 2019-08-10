@@ -1,0 +1,38 @@
+<article class="user-info">
+
+  <div class="user-info-header">
+    <h3>{{ user.name || user.login }}</h3>
+  </div>
+
+  <div class="user-info-content">
+
+    <div class="user-info-logo">
+      <img
+        [src]="user.avatar_url"
+        [alt]="user.name || user.login"
+        width="100"
+       />
+    </div>
+
+    <div class="user-info-about">
+      <div class="user-info-stats">
+        <span class="badge badge-secondary"> Public Repos: {{ user.public_repos }}</span>
+        <span class="badge badge-success"> Public Gists: {{ user.public_gists }}</span>
+        <span class="badge badge-info"> Followers: {{ user.followers }}</span>
+        <span class="badge badge-warning"> Following: {{ user.following }}</span>
+      </div>
+
+      <div class="user-info-main">
+        <div><strong>Company</strong>: {{ user.company || '-' }}</div>
+        <div><strong>Location</strong>: {{ user.location || '-' }}</div>
+        <div><strong>Website/Blog</strong>: {{ user.blog || '-' }}</div>
+        <div><strong>Email</strong>: {{ user.email || '-' }}</div>
+        <div><strong>Member Since</strong>: {{ user.created_at | date: 'dd.MM.yyyy' }}</div>
+      </div>
+    </div>
+
+    <div class="user-info-link">
+      <a [href]="user.html_url" target="_blank" class="btn btn-primary">Visit Profile</a>
+    </div>
+  </div>
+</article>
