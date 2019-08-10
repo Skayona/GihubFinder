@@ -1,4 +1,18 @@
+@import '~node_modules/bootstrap/scss/bootstrap-grid.scss';
+
 .content {
   display: grid;
-  row-gap: 16px;
+  row-gap: 24px;
+}
+
+@media(min-width: map-get($grid-breakpoints, md)) {
+  .content {
+    row-gap: 32px;
+  }
+}
+
+@media(min-width: map-get($grid-breakpoints, lg)) {
+  .content {
+    row-gap: 40px;
+  }
 }

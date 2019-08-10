@@ -1,6 +1,6 @@
 @import '~node_modules/bootstrap/scss/bootstrap-grid.scss';
 
-h3 {
+h4 {
   margin-bottom: 0;
 }
 
@@ -8,7 +8,8 @@ h3 {
   display: grid;
   row-gap: 24px;
   padding: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(#007bff, 0.3);
+  border-radius: 4px;
 }
 
 .user-info-logo {
@@ -38,8 +39,9 @@ h3 {
   padding: 8px;
 }
 
-.user-info-main>* + * {
-  border-top: 1px solid #ccc;
+.user-info-main>*+* {
+  border-top: 1px solid rgba(#007bff, 0.3);
+  ;
 }
 
 
@@ -95,9 +97,6 @@ h3 {
 }
 
 @media(min-width: map-get($grid-breakpoints, lg)) {
-  .user-info {
-    row-gap: 32px;
-  }
 
   .user-info-content,
   .user-info-about {

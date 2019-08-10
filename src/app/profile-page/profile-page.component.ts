@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GithubFinderService } from '../services/github-finder.service';
 import { IUser } from '../models/user';
+import { IRepo } from '../models/repo';
 
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss']
 })
-export class ProfilePageComponent implements OnInit {
+export class ProfilePageComponent {
   user: IUser;
+  repos: IRepo[];
   error: boolean;
   errorMessage: string;
 
@@ -18,18 +20,28 @@ export class ProfilePageComponent implements OnInit {
     this.error = false;
   }
 
-  ngOnInit() {
-    this.finderService.getUser('Skayona')
-    .then((user: IUser) => {
-      this.error = false;
-      this.errorMessage = '';
-      this.user = user;
-    })
-    .catch((message) => {
-      this.error = true;
-      this.errorMessage = message;
-      this.user = null;
-    });
+  searchUser(username: string) {
+    console.log(username);
+
+    this.finderService.getUser(username)
+      .then((user: IUser) => {
+        this.error = false;
+        this.errorMessage = '';
+        this.user = user;
+
+        this.finderService.getReposList(username)
+          .then((repos: IRepo[]) => {
+            this.repos = repos;
+          })
+          .catch((message) => {
+            console.error(message);
+          });
+      })
+      .catch((message) => {
+        this.error = true;
+        this.errorMessage = message;
+        this.user = null;
+      });
   }
 
 }

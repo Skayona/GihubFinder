@@ -1,1 +1,9 @@
-<p>user-repositories works!</p>
+<h2>List Repos</h2>
+<p *ngIf="repos && !repos.length">No repositories</p>
+<ul *ngIf="repos && repos.length">
+  <li *ngFor="let repo of repos">
+    <app-user-repo-item
+      [repo]="repo"
+    ></app-user-repo-item>
+  </li>
+</ul>

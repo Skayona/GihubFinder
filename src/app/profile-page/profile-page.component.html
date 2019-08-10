@@ -1,14 +1,17 @@
 <article>
   <h1>Search Github Users</h1>
-  <p>Enter a username to find a users profiles and repositories</p>
   <div class="content">
-    <app-user-search></app-user-search>
-    <p *ngIf="error">{{ errorMessage }}</p>
+    <app-user-search
+      [error]="error"
+      [errorMessage]="errorMessage"
+      (searchUser)="searchUser($event)"
+    ></app-user-search>
     <app-user-info
       [user]="user"
       *ngIf="!error && user"
     ></app-user-info>
     <app-user-repositories
+      [repos]="repos"
       *ngIf="!error && user"
     ></app-user-repositories>
   </div>

@@ -1,0 +1,31 @@
+<article class="repo">
+  <div class="repo-content">
+    <h5>{{ repo.name }}</h5>
+    <p class="text-muted">{{ repo.description || '-' }}</p>
+    <p class="text-muted">
+        <small>
+          <strong>Language</strong>: {{ repo.language || '-' }}
+        </small>
+      </p>
+    <p class="text-muted">
+      <small>
+        <strong>Created at</strong>: {{ repo.created_at | date: 'dd.MM.yyyy hh:mm' }}
+      </small>
+    </p>
+    <p class="text-muted">
+      <small>
+        <strong>Updated at</strong>: {{ repo.updated_at | date: 'dd.MM.yyyy hh:mm' }}
+      </small>
+    </p>
+  </div>
+
+  <div class="repo-stats">
+    <span class="badge badge-secondary">Forks: {{ repo.forks_count }}</span>
+    <span class="badge badge-success">Watchers: {{ repo.watchers_count }}</span>
+    <span class="badge badge-warning">Stars: {{ repo.stargazers_count }}</span>
+  </div>
+
+  <div class="repo-link">
+    <a class="btn btn-dark" [href]="repo.html_url" target="_blank">Repo Page</a>
+  </div>
+</article>

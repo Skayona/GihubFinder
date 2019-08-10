@@ -1,0 +1,51 @@
+@import '~node_modules/bootstrap/scss/bootstrap-grid.scss';
+
+.repo {
+  display: grid;
+  row-gap: 16px;
+}
+
+.repo-content p {
+  margin-bottom: 0;
+}
+
+.repo-stats .badge+.badge {
+  margin-left: 4px;
+}
+
+@media(min-width: map-get($grid-breakpoints, md)) {
+  .repo {
+    grid-template-columns: 3fr 2fr 1fr;
+    column-gap: 16px;
+  }
+
+  .repo-stats {
+    line-height: 0;
+    text-align: center;
+  }
+
+  .repo-stats .badge {
+    display: block;
+    width: max-content;
+  }
+
+  .repo-stats .badge+.badge {
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .repo-link {
+    text-align: right;
+  }
+}
+
+@media(min-width: map-get($grid-breakpoints, lg)) {
+  .repo-stats .badge {
+    display: inline-block;
+    width: auto;
+  }
+
+  .repo-stats .badge+.badge {
+    margin-left: 4px;
+  }
+}

@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IRepo } from '../models/repo';
 
 @Component({
   selector: 'app-user-repositories',
   templateUrl: './user-repositories.component.html',
   styleUrls: ['./user-repositories.component.scss']
 })
-export class UserRepositoriesComponent implements OnInit {
+export class UserRepositoriesComponent {
+  @Input() repos: IRepo[];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.repos = [];
   }
 
 }

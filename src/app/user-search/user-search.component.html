@@ -1,1 +1,13 @@
-<p>search-user works!</p>
+<div>
+  <label for="search">Enter a username to find a users profiles and repositories</label>
+  <input
+    type="search"
+    class="form-control"
+    id="search"
+    aria-describedby="emailHelp"
+    placeholder="Enter username..."
+    [(ngModel)]="username"
+    (input)="onChange()"
+  >
+  <p class="search-error text-secondary" *ngIf="error"><small>{{ errorMessage }}</small></p>
+</div>
