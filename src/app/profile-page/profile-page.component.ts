@@ -21,27 +21,28 @@ export class ProfilePageComponent {
   }
 
   searchUser(username: string) {
-    console.log(username);
-
     this.finderService.getUser(username)
       .then((user: IUser) => {
         this.error = false;
         this.errorMessage = '';
         this.user = user;
-
-        this.finderService.getReposList(username)
-          .then((repos: IRepo[]) => {
-            this.repos = repos;
-          })
-          .catch((message) => {
-            console.error(message);
-          });
+        this.getReposList(username);
       })
       .catch((message) => {
         this.error = true;
         this.errorMessage = message;
         this.user = null;
       });
+  }
+
+  getReposList(username: string) {
+    this.finderService.getReposList(username)
+    .then((repos: IRepo[]) => {
+      this.repos = repos;
+    })
+    .catch((message) => {
+      console.error(message);
+    });
   }
 
 }

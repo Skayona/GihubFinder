@@ -9,6 +9,8 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { UserRepositoriesComponent } from './user-repositories/user-repositories.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { UserRepoItemComponent } from './user-repo-item/user-repo-item.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { RepositoryPageComponent } from './repository-page/repository-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { UserRepoItemComponent } from './user-repo-item/user-repo-item.component
     UserSearchComponent,
     UserInfoComponent,
     UserRepositoriesComponent,
-    UserRepoItemComponent
+    UserRepoItemComponent,
+    NotFoundPageComponent,
+    RepositoryPageComponent
   ],
   imports: [
     BrowserModule,
